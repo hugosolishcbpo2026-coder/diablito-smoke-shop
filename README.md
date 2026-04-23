@@ -3,71 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sun Studio</title>
+  <title>Diablito Report</title>
   <style>
+    :root {
+      --bg:#1a1d26;
+      --card:#222;
+      --accent:#ff0000;
+      --text:#e6e6e6;
+      --muted:#9aa0a6;
+    }
     body {
-      margin: 0;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #fff8f0;
-      color: #222;
+      margin:0;
+      font-family:"Segoe UI",sans-serif;
+      background:linear-gradient(135deg,#1a1d26,#2a2d36);
+      color:var(--text);
+      padding:30px;
+    }
+    .container {
+      max-width:1000px;
+      margin:auto;
     }
     header {
-      background: #ffcc00;
-      text-align: center;
-      padding: 40px 20px;
+      text-align:center;
+      margin-bottom:40px;
     }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      letter-spacing: 2px;
+    h1 {
+      font-size:2.5rem;
+      color:var(--accent);
+      text-shadow:0 0 10px rgba(255,0,0,0.7);
     }
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
+    section {
+      background:var(--card);
+      border-radius:14px;
+      padding:25px;
+      margin-bottom:25px;
+      border:1px solid rgba(255,255,255,0.08);
     }
-    .hero h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
+    h3 {
+      color:var(--accent);
+      border-left:3px solid var(--accent);
+      padding-left:10px;
     }
-    .hero p {
-      max-width: 600px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-    }
-    .cta button {
-      background: #ff6600;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1em;
-      cursor: pointer;
+    .highlight {
+      color:var(--accent);
+      font-weight:bold;
     }
     footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      text-align:center;
+      color:var(--muted);
+      margin-top:40px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Sun Studio</h1>
-    <p>Creative energy for your business</p>
-  </header>
+<div class="container">
 
-  <section class="hero">
-    <h2>Shine Brighter</h2>
-    <p>We craft unique digital experiences that help your brand stand out. 
-       From design to strategy, we bring your vision to life.</p>
-    <div class="cta">
-      <button>Work With Us</button>
-    </div>
-  </section>
+<header>
+  <h1>Diablito Report</h1>
+  <p class="highlight">Documenting disputes and requested resolution</p>
+</header>
 
-  <footer>
-    <p>&copy; 2026 Sun Studio. All rights reserved.</p>
-  </footer>
+<section>
+  <h3>Introduction</h3>
+  <p>
+    This report outlines issues and concerns related to Diablito, including unpaid commissions, broken agreements, and unsafe practices.
+  </p>
+</section>
+
+<section>
+  <h3>Key Details</h3>
+  <ul>
+    <li>Outstanding balance: $[Amount]</li>
+    <li>Individuals referenced: [Names]</li>
+    <li>Associated entities: [Companies]</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Evidence</h3>
+  <p>Attach or embed supporting materials here (images, audio, video, documents).</p>
+</section>
+
+<section>
+  <h3>Requested Resolution</h3>
+  <ol>
+    <li>Immediate payment of commissions</li>
+    <li>Clarification of ownership and authority</li>
+    <li>Safety assurances</li>
+  </ol>
+</section>
+
+<footer>
+  Prepared by Hugo Obed Najera Solis — Public Report
+</footer>
+
+</div>
 </body>
 </html>
