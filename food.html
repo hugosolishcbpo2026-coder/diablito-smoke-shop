@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food — Diablito Hub</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.coming-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.big-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.coming-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.coming-title span { color: var(--red); }
+
+.coming-desc {
+  color: #555;
+  max-width: 420px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
+}
+
+.spot-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 32px;
+}
+
+.spot-item {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  opacity: 0.6;
+}
+
+.spot-icon { font-size: 20px; }
+.spot-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.spot-desc { font-size: 11px; color: #555; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">🔥 DIABLITO</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Hub</a></li>
+    <li><a href="smoke.html">Shop</a></li>
+    <li><a href="games.html">Gaming</a></li>
+    <li><a href="ai.html">AI Lab</a></li>
+    <li><a href="movies.html">Movies</a></li>
+    <li><a href="food.html" class="active">Food</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <div class="coming-wrap">
+    <div class="big-icon fade-up">🍔</div>
+    <h1 class="coming-title fade-up-1">TJ Food <span>Coming Soon</span></h1>
+    <p class="coming-desc fade-up-2">Tijuana has some of the best food in the world. We're building a guide to the best spots — from tacos to mariscos to birria.</p>
+
+    <div class="spot-list fade-up-3">
+      <div class="spot-item">
+        <span class="spot-icon">🌮</span>
+        <div>
+          <div class="spot-name">Taco Spots</div>
+          <div class="spot-desc">The real TJ taco guide, no tourists</div>
+        </div>
+      </div>
+      <div class="spot-item">
+        <span class="spot-icon">🦞</span>
+        <div>
+          <div class="spot-name">Mariscos</div>
+          <div class="spot-desc">Fresh seafood — TJ style</div>
+        </div>
+      </div>
+      <div class="spot-item">
+        <span class="spot-icon">🍖</span>
+        <div>
+          <div class="spot-name">Birria & Asada</div>
+          <div class="spot-desc">The spots that hit different at 2am</div>
+        </div>
+      </div>
+      <div class="spot-item">
+        <span class="spot-icon">🛵</span>
+        <div>
+          <div class="spot-name">Delivery Guide</div>
+          <div class="spot-desc">Rappi, Uber Eats TJ recommendations</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-up-4">
+      <a href="index.html" class="btn btn-primary">← Back to Hub</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="index.html">← Back to Hub</a></p>
+</footer>
+
+</body>
+</html>
