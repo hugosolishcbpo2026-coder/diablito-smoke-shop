@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diablito Hub 🔥</title>
+<meta name="description" content="Diablito Hub — Smoke Shop, Movies, Music, Gaming, Food & AI. Based in Tijuana.">
+<link rel="stylesheet" href="style.css">
+<style>
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+.hub-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px 20px 22px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+}
+
+.hub-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.hub-card:hover {
+  border-color: var(--border-red);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(255,26,26,0.12);
+}
+
+.hub-card:hover::after { opacity: 1; }
+
+.hub-card .icon-wrap {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 14px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.hub-card:hover .icon-wrap {
+  background: #1a0e0e;
+  border-color: var(--border-red);
+}
+
+.hub-card .card-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.hub-card .card-desc {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.stat-strip {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 30px 24px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 50px;
+}
+
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--red);
+  display: block;
+}
+.stat-label {
+  font-size: 11px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">🔥 DIABLITO</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Hub</a></li>
+    <li><a href="smoke.html">Shop</a></li>
+    <li><a href="games.html">Gaming</a></li>
+    <li><a href="ai.html">AI Lab</a></li>
+    <li><a href="movies.html">Movies</a></li>
+    <li><a href="food.html">Food</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <div class="hero">
+    <p class="hero-sub fade-up">Welcome to</p>
+    <h1 class="hero-title fade-up-1" style="animation: fadeUp 0.5s 0.05s ease both, flicker 3s 1s ease-in-out infinite;">🔥 DIABLITO HUB 🔥</h1>
+    <p class="hero-desc fade-up-2">Your all-in-one spot for smoke, entertainment, gaming, food & AI — straight from Tijuana.</p>
+    <div class="hero-badges fade-up-3">
+      <span class="badge badge-live">● Live Now</span>
+      <span class="badge badge-hot">Tijuana's Hub</span>
+      <span class="badge badge-ready">RTX 3070 Ready</span>
+    </div>
+  </div>
+
+  <div class="stat-strip fade-up-3">
+    <div class="stat-item">
+      <span class="stat-num">6</span>
+      <span class="stat-label">Sections</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">24/7</span>
+      <span class="stat-label">Online</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">TJ</span>
+      <span class="stat-label">Based</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">FREE</span>
+      <span class="stat-label">Always</span>
+    </div>
+  </div>
+
+  <div class="hub-grid">
+    <a class="hub-card fade-up-1" href="smoke.html">
+      <div class="icon-wrap">🔥</div>
+      <div class="card-name">Smoke Shop</div>
+      <div class="card-desc">Products, deals & more from Diablito's shop.</div>
+      <span class="badge badge-live">Live</span>
+    </a>
+
+    <a class="hub-card fade-up-2" href="movies.html">
+      <div class="icon-wrap">🎬</div>
+      <div class="card-name">Movies</div>
+      <div class="card-desc">Stream picks, reviews and recommendations.</div>
+      <span class="badge badge-soon">Coming Soon</span>
+    </a>
+
+    <a class="hub-card fade-up-3" href="music.html">
+      <div class="icon-wrap">🎵</div>
+      <div class="card-name">Music Videos</div>
+      <div class="card-desc">Curated music videos and local artist features.</div>
+      <span class="badge badge-soon">Coming Soon</span>
+    </a>
+
+    <a class="hub-card fade-up-4" href="games.html">
+      <div class="icon-wrap">🎮</div>
+      <div class="card-name">Gaming Zone</div>
+      <div class="card-desc">Game reviews, streams & RTX 3070 benchmarks.</div>
+      <span class="badge badge-ready">RTX 3070</span>
+    </a>
+
+    <a class="hub-card fade-up-5" href="food.html">
+      <div class="icon-wrap">🍔</div>
+      <div class="card-name">Food</div>
+      <div class="card-desc">TJ food spots, ordering & recommendations.</div>
+      <span class="badge badge-soon">Coming Soon</span>
+    </a>
+
+    <a class="hub-card fade-up-6" href="ai.html">
+      <div class="icon-wrap">🤖</div>
+      <div class="card-name">AI Lab</div>
+      <div class="card-desc">Local + online AI tools, demos and experiments.</div>
+      <span class="badge badge-ready">Online</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="https://github.com/diablito-smoke-shop">GitHub</a> &nbsp;·&nbsp; Built with 🖤</p>
+</footer>
+
+</body>
+</html>
