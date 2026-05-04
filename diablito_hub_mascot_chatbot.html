@@ -1,0 +1,415 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --red:#ff1a1a;--red2:#ff4444;--gold:#ffcc00;--cyan:#00f5ff;
+  --bg:#060606;--bg2:#0e0e0e;--bg3:#141414;--border:#1e1e1e;
+}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:#e8e8e8;overflow-x:hidden;min-height:100vh;}
+#mc{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0.04;pointer-events:none;z-index:0;}
+
+.wrap{position:relative;z-index:1;}
+
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(6,6,6,0.95);backdrop-filter:blur(20px);
+  border-bottom:1px solid #111;height:60px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 24px;
+}
+nav::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0.6;}
+.nav-logo{font-family:'Black Ops One',cursive;font-size:1.25rem;color:var(--red);text-decoration:none;letter-spacing:1px;display:flex;align-items:center;gap:8px;}
+.nav-logo img{width:32px;height:32px;border-radius:8px;object-fit:cover;border:1px solid rgba(255,26,26,0.3);}
+.nav-links{list-style:none;display:flex;gap:2px;}
+.nav-links a{color:#444;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 12px;border-radius:8px;transition:all 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:#e8e8e8;background:#151515;}
+.nav-links a.active{color:var(--red);}
+
+.hero{padding:60px 24px 40px;text-align:center;position:relative;}
+.hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:14px;animation:fadeUp 0.5s ease both;}
+.hero-logo-img{
+  width:160px;height:auto;margin:0 auto 20px;display:block;
+  border-radius:16px;border:2px solid rgba(255,26,26,0.3);
+  box-shadow:0 0 40px rgba(255,0,0,0.2),0 0 80px rgba(255,0,0,0.08);
+  animation:fadeUp 0.5s 0.05s ease both, float 4s 1s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg);}50%{transform:translateY(-8px) rotate(1deg);}}
+.hero-title{font-family:'Black Ops One',cursive;font-size:clamp(2.5rem,8vw,5.5rem);line-height:0.95;margin-bottom:10px;animation:fadeUp 0.5s 0.1s ease both;}
+.hero-title .outline{color:transparent;-webkit-text-stroke:2px var(--red);text-shadow:0 0 40px rgba(255,0,68,0.3);display:block;}
+.hero-title .solid{color:#fff;text-shadow:0 0 60px rgba(255,26,26,0.4);display:block;animation:flicker 5s 2s ease-in-out infinite;}
+@keyframes flicker{0%,94%,96%,100%{opacity:1;}95%{opacity:0.7;}}
+.hero-sub{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#3a3a3a;margin-bottom:24px;animation:fadeUp 0.5s 0.15s ease both;}
+.hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;animation:fadeUp 0.5s 0.2s ease both;}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
+.bl{background:rgba(46,216,122,0.08);color:#2ed87a;border:1px solid rgba(46,216,122,0.2);}
+.br{background:rgba(255,0,68,0.08);color:var(--red);border:1px solid rgba(255,0,68,0.2);}
+.bg{background:rgba(255,204,0,0.08);color:var(--gold);border:1px solid rgba(255,204,0,0.2);}
+.pulse{width:5px;height:5px;border-radius:50%;background:currentColor;animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.2;}}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;padding:0 24px 60px;max-width:1100px;margin:0 auto;}
+.card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:18px;
+  padding:24px 18px 20px;text-align:center;cursor:pointer;
+  transition:all 0.25s;position:relative;overflow:hidden;text-decoration:none;display:block;
+  animation:fadeUp 0.5s ease both;
+}
+.card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0;transition:opacity 0.25s;}
+.card:hover{border-color:rgba(255,26,26,0.3);transform:translateY(-5px);box-shadow:0 16px 50px rgba(255,0,0,0.1);}
+.card:hover::after{opacity:1;}
+.card-icon{width:56px;height:56px;margin:0 auto 14px;background:var(--bg3);border:1px solid var(--border);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;transition:all 0.25s;}
+.card:hover .card-icon{background:#1a0e0e;border-color:rgba(255,26,26,0.25);}
+.card-name{font-family:'Black Ops One',cursive;font-size:0.95rem;color:#e8e8e8;margin-bottom:6px;letter-spacing:0.5px;}
+.card-desc{font-size:11px;color:#404040;margin-bottom:12px;line-height:1.5;}
+.cbdg{display:inline-block;padding:3px 10px;border-radius:20px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
+
+.stat-strip{display:flex;justify-content:center;gap:0;padding:0 24px;margin-bottom:50px;max-width:700px;margin-left:auto;margin-right:auto;animation:fadeUp 0.5s 0.25s ease both;}
+.stat{flex:1;text-align:center;padding:20px 10px;border-right:1px solid var(--border);position:relative;}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Black Ops One',cursive;font-size:1.8rem;color:var(--red);display:block;text-shadow:0 0 20px rgba(255,26,26,0.3);}
+.stat-lbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#333;margin-top:2px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* ===== EL DIABLITO CHATBOT ===== */
+#diablito-bot{
+  position:fixed;bottom:24px;right:24px;z-index:9999;
+  display:flex;flex-direction:column;align-items:flex-end;gap:12px;
+}
+
+#mascot-btn{
+  width:80px;height:80px;border-radius:20px;
+  background:var(--bg2);
+  border:2px solid rgba(255,26,26,0.4);
+  cursor:pointer;overflow:hidden;
+  box-shadow:0 0 30px rgba(255,0,0,0.2),0 8px 30px rgba(0,0,0,0.5);
+  transition:all 0.3s;
+  animation:mascotFloat 3s ease-in-out infinite;
+  position:relative;
+}
+#mascot-btn::before{
+  content:'';position:absolute;inset:-2px;border-radius:22px;
+  background:linear-gradient(135deg,var(--red),transparent,var(--gold));
+  z-index:-1;animation:borderSpin 3s linear infinite;
+}
+@keyframes mascotFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+@keyframes borderSpin{0%{opacity:0.4;}50%{opacity:1;}100%{opacity:0.4;}}
+#mascot-btn:hover{transform:scale(1.08) translateY(-4px);box-shadow:0 0 50px rgba(255,0,0,0.4),0 12px 40px rgba(0,0,0,0.6);}
+#mascot-btn img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+
+.mascot-label{
+  position:absolute;top:-28px;left:50%;transform:translateX(-50%);
+  background:var(--red);color:#fff;
+  font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:3px 10px;border-radius:20px;white-space:nowrap;
+  box-shadow:0 0 10px rgba(255,0,0,0.4);
+  animation:labelBounce 2s ease-in-out infinite;
+}
+@keyframes labelBounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-3px);}}
+
+#chat-panel{
+  width:320px;
+  background:rgba(10,10,10,0.97);
+  border:1px solid rgba(255,26,26,0.25);
+  border-radius:20px;
+  overflow:hidden;
+  backdrop-filter:blur(20px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.8),0 0 40px rgba(255,0,0,0.1);
+  display:none;
+  flex-direction:column;
+  animation:slideUp 0.3s ease both;
+}
+#chat-panel.open{display:flex;}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+.chat-head{
+  padding:14px 16px;
+  background:var(--bg2);
+  border-bottom:1px solid #1a1a1a;
+  display:flex;align-items:center;gap:10px;
+  position:relative;
+}
+.chat-head::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0.5;}
+.chat-avatar{width:36px;height:36px;border-radius:10px;object-fit:cover;object-position:top;border:1px solid rgba(255,26,26,0.3);}
+.chat-head-info{flex:1;}
+.chat-head-name{font-family:'Black Ops One',cursive;font-size:0.9rem;color:var(--red);letter-spacing:0.5px;}
+.chat-head-status{font-size:10px;color:#2ed87a;display:flex;align-items:center;gap:4px;}
+.sdot{width:5px;height:5px;border-radius:50%;background:#2ed87a;animation:pulse 2s ease infinite;}
+.close-btn{background:none;border:none;color:#444;font-size:18px;cursor:pointer;padding:4px;transition:color 0.2s;line-height:1;}
+.close-btn:hover{color:var(--red);}
+
+.chat-msgs{
+  flex:1;overflow-y:auto;padding:14px;
+  display:flex;flex-direction:column;gap:10px;
+  max-height:300px;min-height:200px;
+}
+.chat-msgs::-webkit-scrollbar{width:4px;}
+.chat-msgs::-webkit-scrollbar-track{background:transparent;}
+.chat-msgs::-webkit-scrollbar-thumb{background:#1e1e1e;border-radius:2px;}
+
+.msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:12px;line-height:1.55;animation:msgIn 0.25s ease both;}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.msg.bot{align-self:flex-start;background:var(--bg3);color:#d0d0d0;border:1px solid var(--border);border-bottom-left-radius:4px;}
+.msg.user{align-self:flex-end;background:var(--red);color:#fff;border-bottom-right-radius:4px;}
+.msg-time{font-size:9px;opacity:0.4;margin-top:3px;}
+
+.typing{align-self:flex-start;background:var(--bg3);border:1px solid var(--border);border-radius:14px;border-bottom-left-radius:4px;padding:10px 14px;display:flex;gap:4px;align-items:center;}
+.typing span{width:5px;height:5px;border-radius:50%;background:#555;animation:typingDot 1.2s ease-in-out infinite;}
+.typing span:nth-child(2){animation-delay:0.2s;}
+.typing span:nth-child(3){animation-delay:0.4s;}
+@keyframes typingDot{0%,60%,100%{transform:translateY(0);opacity:0.4;}30%{transform:translateY(-4px);opacity:1;}}
+
+.quick-btns{padding:10px 14px;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid #111;}
+.qbtn{
+  background:var(--bg3);border:1px solid var(--border);border-radius:20px;
+  color:#777;font-size:10px;font-weight:600;letter-spacing:0.3px;
+  padding:5px 11px;cursor:pointer;font-family:'Barlow',sans-serif;
+  transition:all 0.2s;
+}
+.qbtn:hover{border-color:rgba(255,26,26,0.3);color:var(--red);background:#1a0e0e;}
+
+.chat-input-row{display:flex;gap:8px;padding:12px 14px;border-top:1px solid #111;background:var(--bg2);}
+#chat-input{
+  flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  padding:8px 12px;color:#e8e8e8;font-family:'Barlow',sans-serif;font-size:12px;outline:none;
+  transition:border-color 0.2s;
+}
+#chat-input:focus{border-color:rgba(255,26,26,0.4);}
+#chat-input::placeholder{color:#333;}
+#send-btn{
+  background:var(--red);border:none;border-radius:10px;
+  padding:8px 14px;color:#fff;font-size:13px;cursor:pointer;
+  transition:all 0.2s;flex-shrink:0;
+}
+#send-btn:hover{background:var(--red2);transform:scale(1.05);}
+
+footer{border-top:1px solid var(--border);padding:20px 24px;text-align:center;color:#2a2a2a;font-size:11px;letter-spacing:1px;text-transform:uppercase;}
+footer a{color:var(--red);text-decoration:none;}
+</style>
+
+<canvas id="mc"></canvas>
+
+<div class="wrap">
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="/mnt/user-data/uploads/Copilot_20260503_151653.png" alt="El Diablito">
+    DIABLITO HUB
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Hub</a></li>
+    <li><a href="#">Shop</a></li>
+    <li><a href="#">Gaming</a></li>
+    <li><a href="#">AI Lab</a></li>
+    <li><a href="#">Movies</a></li>
+    <li><a href="#">Food</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <p class="hero-eyebrow">Tijuana, BC — Est. 2024</p>
+  <img class="hero-logo-img" src="/mnt/user-data/uploads/Copilot_20260503_151653.png" alt="El Diablito Mascot">
+  <h1 class="hero-title">
+    <span class="outline">DIABLITO</span>
+    <span class="solid">HUB</span>
+  </h1>
+  <p class="hero-sub">Smoke · Gaming · AI · Music · Food · Movies</p>
+  <div class="hero-badges">
+    <span class="badge bl"><span class="pulse"></span>Live Now</span>
+    <span class="badge br">🔥 Tijuana's #1</span>
+    <span class="badge bg">⭐ El Diablito</span>
+  </div>
+</div>
+
+<div class="stat-strip">
+  <div class="stat"><span class="stat-num">6</span><div class="stat-lbl">Sections</div></div>
+  <div class="stat"><span class="stat-num">24/7</span><div class="stat-lbl">Online</div></div>
+  <div class="stat"><span class="stat-num">TJ</span><div class="stat-lbl">Based</div></div>
+  <div class="stat"><span class="stat-num">FREE</span><div class="stat-lbl">Always</div></div>
+</div>
+
+<div class="grid">
+  <a class="card" href="#" style="animation-delay:0.05s">
+    <div class="card-icon">🔥</div>
+    <div class="card-name">Smoke Shop</div>
+    <div class="card-desc">Premium products, best prices in TJ.</div>
+    <span class="cbdg bl">Live</span>
+  </a>
+  <a class="card" href="#" style="animation-delay:0.1s">
+    <div class="card-icon">🎬</div>
+    <div class="card-name">Movies</div>
+    <div class="card-desc">Reviews, picks & streaming guides.</div>
+    <span class="cbdg" style="background:rgba(255,170,51,0.1);color:#ffaa33;border:1px solid rgba(255,170,51,0.2)">Soon</span>
+  </a>
+  <a class="card" href="#" style="animation-delay:0.15s">
+    <div class="card-icon">🎵</div>
+    <div class="card-name">Music</div>
+    <div class="card-desc">Videos, local artists & vibes.</div>
+    <span class="cbdg" style="background:rgba(255,170,51,0.1);color:#ffaa33;border:1px solid rgba(255,170,51,0.2)">Soon</span>
+  </a>
+  <a class="card" href="#" style="animation-delay:0.2s">
+    <div class="card-icon">🎮</div>
+    <div class="card-name">Gaming</div>
+    <div class="card-desc">RTX 3070 benchmarks & reviews.</div>
+    <span class="cbdg" style="background:rgba(100,160,255,0.1);color:#78aaff;border:1px solid rgba(100,160,255,0.2)">RTX 3070</span>
+  </a>
+  <a class="card" href="#" style="animation-delay:0.25s">
+    <div class="card-icon">🍔</div>
+    <div class="card-name">Food</div>
+    <div class="card-desc">Best spots in Tijuana — real ones.</div>
+    <span class="cbdg" style="background:rgba(255,170,51,0.1);color:#ffaa33;border:1px solid rgba(255,170,51,0.2)">Soon</span>
+  </a>
+  <a class="card" href="#" style="animation-delay:0.3s">
+    <div class="card-icon">🤖</div>
+    <div class="card-name">AI Lab</div>
+    <div class="card-desc">Local + online AI tools & demos.</div>
+    <span class="cbdg" style="background:rgba(100,160,255,0.1);color:#78aaff;border:1px solid rgba(100,160,255,0.2)">Online</span>
+  </a>
+</div>
+</div>
+
+<footer>
+  <p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="#">GitHub</a> &nbsp;·&nbsp; Built by El Diablito 😈</p>
+</footer>
+
+<!-- EL DIABLITO CHATBOT -->
+<div id="diablito-bot">
+  <div id="chat-panel">
+    <div class="chat-head">
+      <img class="chat-avatar" src="/mnt/user-data/uploads/Copilot_20260503_151653.png" alt="El Diablito">
+      <div class="chat-head-info">
+        <div class="chat-head-name">El Diablito 😈</div>
+        <div class="chat-head-status"><span class="sdot"></span>Online & Ready</div>
+      </div>
+      <button class="close-btn" onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-msgs" id="msgs"></div>
+    <div class="quick-btns">
+      <button class="qbtn" onclick="quickAsk('How do I order?')">How to order?</button>
+      <button class="qbtn" onclick="quickAsk('What products do you have?')">Products</button>
+      <button class="qbtn" onclick="quickAsk('Where are you located?')">Location</button>
+      <button class="qbtn" onclick="quickAsk('What are your hours?')">Hours</button>
+    </div>
+    <div class="chat-input-row">
+      <input id="chat-input" placeholder="Ask El Diablito anything..." onkeydown="if(event.key==='Enter')sendMsg()">
+      <button id="send-btn" onclick="sendMsg()">➤</button>
+    </div>
+  </div>
+
+  <div style="position:relative;">
+    <div class="mascot-label">Ask Me 🔥</div>
+    <button id="mascot-btn" onclick="toggleChat()">
+      <img src="/mnt/user-data/uploads/Copilot_20260503_151653.png" alt="El Diablito">
+    </button>
+  </div>
+</div>
+
+<script>
+const mc=document.getElementById('mc');
+const ctx=mc.getContext('2d');
+function rsz(){mc.width=window.innerWidth;mc.height=window.innerHeight;}
+rsz();window.addEventListener('resize',rsz);
+const chars='DIABLITO01アイウエオ🔥😈';
+const fs=13;let drops=Array(Math.floor(window.innerWidth/fs)).fill(1);
+function drawM(){
+  ctx.fillStyle='rgba(6,6,6,0.06)';ctx.fillRect(0,0,mc.width,mc.height);
+  ctx.fillStyle='#ff1a1a';ctx.font=fs+'px monospace';
+  drops.forEach((y,i)=>{
+    ctx.fillText(chars[Math.floor(Math.random()*chars.length)],i*fs,y*fs);
+    if(y*fs>mc.height&&Math.random()>0.975)drops[i]=0;drops[i]++;
+  });
+}
+setInterval(drawM,55);
+
+let chatOpen=false;
+let isTyping=false;
+
+const responses={
+  'order':['To place an order, just DM us on Instagram or WhatsApp! 📱 Tell us what you want and we\'ll hook you up with the best price in TJ. 🔥','Hit us up on social media — Instagram or WhatsApp is the fastest way to order. We usually reply within minutes! 😈'],
+  'product':['We carry premium vapes, rolling papers (RAW, Zig-Zag, Elements), lighters, torches, glass pieces, grinders, trays and custom orders! What are you looking for specifically? 🛒','Our smoke shop has everything — vapes, papers, glass pieces, accessories and more. DM us for current stock and pricing! 💨'],
+  'location':['We\'re based in Tijuana, BC! 📍 DM us on Instagram or WhatsApp for the exact address. Mon–Sat 10am–10pm, Sun 12pm–8pm. 🌮','Tijuana, BC is home! Reach out on our socials for the address. Come through! 🔥'],
+  'hours':['We\'re open Mon–Sat 10am–10pm and Sundays 12pm–8pm. 🕙 DM us to confirm holiday hours!','Open most days! Monday through Saturday 10am to 10pm, Sundays noon to 8pm. Hit us up! 😈'],
+  'price':['Prices vary by product — we always have the best deals in TJ! 💰 DM us on Instagram or WhatsApp and we\'ll give you a price right away.','We don\'t post prices online to keep it competitive, but trust — we beat everybody\'s prices. Reach out and see! 🔥'],
+  'vape':['We carry the latest vapes — all brands, all flavors! 💨 DM us to check current stock. We update it regularly.','Big selection of vapes! Elf Bar, Geek Bar, Lost Mary and more. Ask us what we have in stock right now! 😈'],
+  'gaming':['The Gaming Zone is powered by an RTX 3070! 🎮 We\'ve got Cyberpunk 2077, Warzone, Elden Ring and more. Check the Gaming page for benchmarks!','RTX 3070 gaming rig — built different! Check out the Gaming Zone section for full specs and game reviews.'],
+  'ai':['The AI Lab has Claude, ChatGPT, Ollama (local AI) and more! 🤖 Our own Diablito AI is coming soon too. Check the AI Lab page!','We use Claude, ChatGPT, Stable Diffusion and local models with Ollama. The AI Lab page has all the tools!'],
+  'default':['What\'s good! I\'m El Diablito — ask me about our smoke shop products, how to order, our location, or anything else! 😈🔥','Wassup! I can help you find products, place an order, or answer any questions about Diablito Hub. What do you need? 🔥','Orale! Hit me with your question — I got you covered on everything Diablito. 😈']
+};
+
+function getResponse(msg){
+  const m=msg.toLowerCase();
+  if(m.includes('order')||m.includes('buy')||m.includes('purchase'))return pick(responses.order);
+  if(m.includes('product')||m.includes('sell')||m.includes('have')||m.includes('stock'))return pick(responses.product);
+  if(m.includes('locat')||m.includes('address')||m.includes('where'))return pick(responses.location);
+  if(m.includes('hour')||m.includes('open')||m.includes('close')||m.includes('time'))return pick(responses.hours);
+  if(m.includes('price')||m.includes('cost')||m.includes('how much')||m.includes('$'))return pick(responses.price);
+  if(m.includes('vape')||m.includes('disposable')||m.includes('elf')||m.includes('geek'))return pick(responses.vape);
+  if(m.includes('game')||m.includes('gaming')||m.includes('rtx')||m.includes('3070'))return pick(responses.gaming);
+  if(m.includes('ai')||m.includes('claude')||m.includes('chatgpt')||m.includes('robot'))return pick(responses.ai);
+  return pick(responses.default);
+}
+
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+
+function toggleChat(){
+  const panel=document.getElementById('chat-panel');
+  chatOpen=!chatOpen;
+  if(chatOpen){
+    panel.classList.add('open');
+    if(document.getElementById('msgs').children.length===0){
+      setTimeout(()=>addBot('Orale! I\'m El Diablito 😈🔥 Your guide to the hub. Ask me about products, how to order, location, hours — anything!'),400);
+    }
+  } else {
+    panel.classList.remove('open');
+  }
+}
+
+function addBot(text){
+  const msgs=document.getElementById('msgs');
+  const t=document.createElement('div');
+  t.className='msg bot';t.textContent=text;
+  msgs.appendChild(t);msgs.scrollTop=msgs.scrollHeight;
+}
+
+function addUser(text){
+  const msgs=document.getElementById('msgs');
+  const t=document.createElement('div');
+  t.className='msg user';t.textContent=text;
+  msgs.appendChild(t);msgs.scrollTop=msgs.scrollHeight;
+}
+
+function showTyping(){
+  const msgs=document.getElementById('msgs');
+  const t=document.createElement('div');
+  t.className='typing';t.id='typing-indicator';
+  t.innerHTML='<span></span><span></span><span></span>';
+  msgs.appendChild(t);msgs.scrollTop=msgs.scrollHeight;
+}
+
+function removeTyping(){
+  const t=document.getElementById('typing-indicator');
+  if(t)t.remove();
+}
+
+function sendMsg(){
+  const inp=document.getElementById('chat-input');
+  const text=inp.value.trim();
+  if(!text||isTyping)return;
+  inp.value='';
+  addUser(text);
+  isTyping=true;
+  showTyping();
+  const delay=800+Math.random()*600;
+  setTimeout(()=>{
+    removeTyping();
+    addBot(getResponse(text));
+    isTyping=false;
+  },delay);
+}
+
+function quickAsk(q){
+  if(isTyping)return;
+  addUser(q);isTyping=true;showTyping();
+  setTimeout(()=>{removeTyping();addBot(getResponse(q));isTyping=false;},900);
+}
+</script>
