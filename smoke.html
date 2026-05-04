@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smoke Shop — Diablito Hub</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.product-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  border-color: var(--border-red);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(255,26,26,0.1);
+}
+
+.product-img {
+  height: 140px;
+  background: var(--bg3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  border-bottom: 1px solid var(--border);
+}
+
+.product-info { padding: 16px; }
+
+.product-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.product-desc {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-price {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--red);
+}
+
+.add-btn {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-body);
+}
+
+.add-btn:hover {
+  background: #ff3333;
+  transform: scale(1.05);
+}
+
+.info-banner {
+  background: var(--bg2);
+  border: 1px solid var(--border-red);
+  border-radius: 14px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  color: #999;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.info-banner .icon { font-size: 22px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">🔥 DIABLITO</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Hub</a></li>
+    <li><a href="smoke.html" class="active">Shop</a></li>
+    <li><a href="games.html">Gaming</a></li>
+    <li><a href="ai.html">AI Lab</a></li>
+    <li><a href="movies.html">Movies</a></li>
+    <li><a href="food.html">Food</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <div class="hero" style="padding-bottom:30px;">
+    <h1 class="hero-title fade-up" style="font-size:clamp(2rem,6vw,3.5rem);">🔥 SMOKE SHOP</h1>
+    <p class="hero-desc fade-up-1">Premium products, best prices in TJ. Come visit us in person or browse online.</p>
+  </div>
+
+  <div class="section">
+    <div class="info-banner fade-up">
+      <span class="icon">📍</span>
+      <span>Visit us in <strong style="color:var(--text)">Tijuana, BC</strong> — DM us on social for address & hours. Product catalog coming fully online soon!</span>
+    </div>
+
+    <h2 class="section-title fade-up">Our <span>Products</span></h2>
+    <p class="section-sub fade-up">Top sellers — updated regularly</p>
+
+    <div class="product-grid">
+      <div class="product-card fade-up-1">
+        <div class="product-img">💨</div>
+        <div class="product-info">
+          <div class="product-name">Premium Vapes</div>
+          <div class="product-desc">Top brands, all flavors. Ask us for the latest stock.</div>
+          <div class="product-footer">
+            <span class="product-price">$$$</span>
+            <button class="add-btn">Ask Price</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up-2">
+        <div class="product-img">🌿</div>
+        <div class="product-info">
+          <div class="product-name">Rolling Papers</div>
+          <div class="product-desc">RAW, Zig-Zag, Elements and more. All sizes.</div>
+          <div class="product-footer">
+            <span class="product-price">$$$</span>
+            <button class="add-btn">Ask Price</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up-3">
+        <div class="product-img">🔥</div>
+        <div class="product-info">
+          <div class="product-name">Lighters & Torches</div>
+          <div class="product-desc">Clipper, Zippo, butane torches and more.</div>
+          <div class="product-footer">
+            <span class="product-price">$$$</span>
+            <button class="add-btn">Ask Price</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up-4">
+        <div class="product-img">🪄</div>
+        <div class="product-info">
+          <div class="product-name">Accessories</div>
+          <div class="product-desc">Grinders, trays, cases, cleaning kits & more.</div>
+          <div class="product-footer">
+            <span class="product-price">$$$</span>
+            <button class="add-btn">Ask Price</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up-5">
+        <div class="product-img">💎</div>
+        <div class="product-info">
+          <div class="product-name">Glass Pieces</div>
+          <div class="product-desc">Hand pipes, bubblers and custom glass.</div>
+          <div class="product-footer">
+            <span class="product-price">$$$</span>
+            <button class="add-btn">Ask Price</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up-6">
+        <div class="product-img">🛒</div>
+        <div class="product-info">
+          <div class="product-name">Special Orders</div>
+          <div class="product-desc">Can't find it? We'll source it for you.</div>
+          <div class="product-footer">
+            <span class="product-price">Custom</span>
+            <button class="add-btn">Contact Us</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="index.html">← Back to Hub</a></p>
+</footer>
+
+</body>
+</html>
