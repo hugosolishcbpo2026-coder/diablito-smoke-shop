@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gaming Zone — Diablito Hub</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.rig-card {
+  background: var(--bg2);
+  border: 1px solid var(--border-red);
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rig-card::before {
+  content: 'GAMING RIG';
+  position: absolute;
+  top: 16px; right: 20px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: 2px;
+  opacity: 0.5;
+}
+
+.rig-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--red);
+  margin-bottom: 18px;
+}
+
+.spec-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  list-style: none;
+}
+
+.spec-item {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.spec-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.spec-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.spec-value.highlight { color: var(--red); }
+
+.game-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: all 0.2s;
+}
+
+.game-card:hover {
+  border-color: var(--border-red);
+  transform: translateX(4px);
+}
+
+.game-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  background: var(--bg3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.game-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.fps-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fps-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--bg3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.fps-fill {
+  height: 100%;
+  background: var(--red);
+  border-radius: 2px;
+  transition: width 1s ease;
+}
+
+.fps-label {
+  font-size: 11px;
+  color: var(--red);
+  font-weight: 600;
+  white-space: nowrap;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">🔥 DIABLITO</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Hub</a></li>
+    <li><a href="smoke.html">Shop</a></li>
+    <li><a href="games.html" class="active">Gaming</a></li>
+    <li><a href="ai.html">AI Lab</a></li>
+    <li><a href="movies.html">Movies</a></li>
+    <li><a href="food.html">Food</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <div class="hero" style="padding-bottom:30px;">
+    <h1 class="hero-title fade-up" style="font-size:clamp(2rem,6vw,3.5rem);">🎮 GAMING ZONE</h1>
+    <p class="hero-desc fade-up-1">Benchmarks, reviews & builds — powered by the RTX 3070.</p>
+  </div>
+
+  <div class="section">
+    <div class="rig-card fade-up">
+      <div class="rig-title">⚡ Diablito's Rig</div>
+      <ul class="spec-list">
+        <li class="spec-item">
+          <div class="spec-label">GPU</div>
+          <div class="spec-value highlight">RTX 3070</div>
+        </li>
+        <li class="spec-item">
+          <div class="spec-label">Status</div>
+          <div class="spec-value highlight">🟢 Online</div>
+        </li>
+        <li class="spec-item">
+          <div class="spec-label">VRAM</div>
+          <div class="spec-value">8 GB GDDR6</div>
+        </li>
+        <li class="spec-item">
+          <div class="spec-label">Ray Tracing</div>
+          <div class="spec-value">✅ Enabled</div>
+        </li>
+        <li class="spec-item">
+          <div class="spec-label">DLSS</div>
+          <div class="spec-value">✅ Supported</div>
+        </li>
+        <li class="spec-item">
+          <div class="spec-label">Resolution</div>
+          <div class="spec-value">1080p / 1440p</div>
+        </li>
+      </ul>
+    </div>
+
+    <h2 class="section-title fade-up">Current <span>Games</span></h2>
+    <p class="section-sub fade-up">What's running on the rig right now</p>
+
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="game-card fade-up-1">
+        <div class="game-icon">🌌</div>
+        <div style="flex:1">
+          <div class="game-title">Cyberpunk 2077</div>
+          <div class="game-desc">Ultra settings, path tracing on. Night City never looked better.</div>
+          <div class="fps-bar-wrap">
+            <div class="fps-bar"><div class="fps-fill" style="width:75%"></div></div>
+            <span class="fps-label">~90 FPS avg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card fade-up-2">
+        <div class="game-icon">🔫</div>
+        <div style="flex:1">
+          <div class="game-title">Warzone</div>
+          <div class="game-desc">Competitive settings, max FPS for the win.</div>
+          <div class="fps-bar-wrap">
+            <div class="fps-bar"><div class="fps-fill" style="width:95%"></div></div>
+            <span class="fps-label">~150 FPS avg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card fade-up-3">
+        <div class="game-icon">⚔️</div>
+        <div style="flex:1">
+          <div class="game-title">Elden Ring</div>
+          <div class="game-desc">High settings, silky smooth FromSoftware action.</div>
+          <div class="fps-bar-wrap">
+            <div class="fps-bar"><div class="fps-fill" style="width:80%"></div></div>
+            <span class="fps-label">~60 FPS locked</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card fade-up-4">
+        <div class="game-icon">🏎️</div>
+        <div style="flex:1">
+          <div class="game-title">Forza Horizon 5</div>
+          <div class="game-desc">Mexico vibes — Ultra 4K textures, stunning visuals.</div>
+          <div class="fps-bar-wrap">
+            <div class="fps-bar"><div class="fps-fill" style="width:88%"></div></div>
+            <span class="fps-label">~110 FPS avg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="index.html">← Back to Hub</a></p>
+</footer>
+
+</body>
+</html>
