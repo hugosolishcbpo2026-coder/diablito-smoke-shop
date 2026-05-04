@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red: #ff1a1a;
+  --red-dim: rgba(255,26,26,0.15);
+  --red-glow: rgba(255,26,26,0.4);
+  --bg: #080808;
+  --bg2: #0f0f0f;
+  --bg3: #151515;
+  --border: #1e1e1e;
+  --border-red: rgba(255,26,26,0.25);
+  --text: #e8e8e8;
+  --muted: #555;
+  --font-display: 'Black Ops One', cursive;
+  --font-body: 'Barlow', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(8,8,8,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+}
+
+nav::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  opacity: 0.5;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--red);
+  text-decoration: none;
+  text-shadow: 0 0 20px var(--red-glow);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #666;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--text);
+  background: var(--bg3);
+}
+
+.nav-links a.active { color: var(--red); }
+
+/* PAGE WRAPPER */
+.page {
+  padding-top: 60px;
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 70px 24px 50px;
+  position: relative;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: var(--red);
+  text-shadow: 0 0 40px var(--red-glow), 0 0 80px rgba(255,26,26,0.15);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: #555;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.hero-desc {
+  max-width: 520px;
+  margin: 0 auto 36px;
+  color: #777;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--red);
+  color: #fff;
+  box-shadow: 0 0 20px var(--red-glow);
+}
+
+.btn-primary:hover {
+  background: #ff3333;
+  box-shadow: 0 0 30px var(--red-glow), 0 4px 20px rgba(255,26,26,0.3);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--border-red);
+  color: var(--red);
+  transform: translateY(-2px);
+}
+
+/* CARDS */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,26,26,0.05) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.card:hover {
+  border-color: var(--border-red);
+  box-shadow: 0 8px 40px rgba(255,26,26,0.1), 0 0 0 1px rgba(255,26,26,0.1);
+  transform: translateY(-4px);
+}
+
+.card:hover::before { opacity: 1; }
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.badge-live { background: rgba(46,216,122,0.1); color: #2ed87a; border: 1px solid rgba(46,216,122,0.2); }
+.badge-soon { background: rgba(255,170,51,0.1); color: #ffaa33; border: 1px solid rgba(255,170,51,0.2); }
+.badge-ready { background: rgba(100,160,255,0.1); color: #78aaff; border: 1px solid rgba(100,160,255,0.2); }
+.badge-hot { background: rgba(255,26,26,0.12); color: var(--red); border: 1px solid var(--border-red); }
+
+/* SECTION */
+.section {
+  padding: 40px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.section-title span { color: var(--red); }
+
+.section-sub {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+  letter-spacing: 0.3px;
+}
+
+/* GRID */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+
+/* DIVIDER */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px;
+  text-align: center;
+  color: #333;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+footer a { color: var(--red); text-decoration: none; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flicker {
+  0% { text-shadow: 0 0 20px var(--red-glow), 0 0 60px rgba(255,26,26,0.15); }
+  50% { text-shadow: 0 0 30px var(--red-glow), 0 0 80px rgba(255,26,26,0.25); }
+  100% { text-shadow: 0 0 20px var(--red-glow), 0 0 60px rgba(255,26,26,0.15); }
+}
+
+.fade-up { animation: fadeUp 0.5s ease both; }
+.fade-up-1 { animation: fadeUp 0.5s 0.05s ease both; }
+.fade-up-2 { animation: fadeUp 0.5s 0.1s ease both; }
+.fade-up-3 { animation: fadeUp 0.5s 0.15s ease both; }
+.fade-up-4 { animation: fadeUp 0.5s 0.2s ease both; }
+.fade-up-5 { animation: fadeUp 0.5s 0.25s ease both; }
+.fade-up-6 { animation: fadeUp 0.5s 0.3s ease both; }
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .hero { padding: 50px 16px 40px; }
+  .section { padding: 30px 16px; }
+}
