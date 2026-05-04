@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music — Diablito Hub</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.coming-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.big-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  animation: spin-slow 6s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.coming-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.coming-title span { color: var(--red); }
+
+.coming-desc {
+  color: #555;
+  max-width: 420px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
+}
+
+.genre-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.genre-tag {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.genre-tag:hover {
+  border-color: var(--border-red);
+  color: var(--red);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">🔥 DIABLITO</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Hub</a></li>
+    <li><a href="smoke.html">Shop</a></li>
+    <li><a href="games.html">Gaming</a></li>
+    <li><a href="ai.html">AI Lab</a></li>
+    <li><a href="movies.html">Movies</a></li>
+    <li><a href="food.html">Food</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <div class="coming-wrap">
+    <div class="big-icon fade-up">💿</div>
+    <h1 class="coming-title fade-up-1">Music Videos <span>Coming Soon</span></h1>
+    <p class="coming-desc fade-up-2">Curated music videos, local TJ artists, and Diablito's personal playlist. The vibe is getting built.</p>
+
+    <div class="genre-tags fade-up-3">
+      <span class="genre-tag">🎸 Rock</span>
+      <span class="genre-tag">🔥 Hip Hop</span>
+      <span class="genre-tag">💃 Reggaeton</span>
+      <span class="genre-tag">🎵 Corridos</span>
+      <span class="genre-tag">🌊 Lo-fi</span>
+      <span class="genre-tag">⚡ Electronic</span>
+      <span class="genre-tag">🎺 Banda</span>
+      <span class="genre-tag">🖤 Metal</span>
+    </div>
+
+    <div class="fade-up-4">
+      <a href="index.html" class="btn btn-primary">← Back to Hub</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="index.html">← Back to Hub</a></p>
+</footer>
+
+</body>
+</html>
